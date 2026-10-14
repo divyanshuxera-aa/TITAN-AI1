@@ -1,0 +1,12 @@
+TITAN-FF.AI — Firebase setup ke aakhri steps
+
+1) Firebase Console: https://console.firebase.google.com/project/titan-ff-1/authentication/providers
+2) Authentication > Sign-in method (ya Sign-in providers) me Email/Password ko Enable karke Save karein.
+3) Authentication > Settings > Authorized domains me apni deployed website ka domain add karein. localhost testing ke liye localhost allowed ho sakta hai.
+4) ZIP ko extract karke saari files ek saath web hosting par upload karein. ES module imports ke kaaran index.html ko file manager se direct file:// ke through kholne ke bajay hosting/server par chalayein.
+5) Google sign-in chahiye to Authentication > Sign-in providers me Google provider enable karein.
+
+Security:
+- Firebase Web API key browser config ka hissa hoti hai, lekin Firestore/Storage data ko secure Rules se protect karna zaroori hai.
+- Kabhi bhi service-account private key, Google password ya OTP website me na daalein.
+- Free Fire UID ka live player data is config se nahi aayega; uske liye authorized API/backend chahiye.

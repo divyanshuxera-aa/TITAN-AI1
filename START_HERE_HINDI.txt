@@ -1,0 +1,18 @@
+TITAN-FF.AI WEBSITE
+
+Files:
+- index.html: main website structure (HTML)
+- style.css: design and responsive layout (CSS)
+- app.js: page interactions and Firebase Authentication wiring
+- firebase-config.js: your Firebase Web App config
+
+Run locally: use a static web server (ES modules may not work from file://). Upload all files together to a static host for deployment.
+
+Firebase checklist:
+1. Firebase Console > Authentication > Sign-in method: enable Email/Password (and Google only if desired).
+2. Configure authorized domains in Authentication settings.
+3. Review Firestore/Database Security Rules before storing player or tournament data.
+
+Important: UID lookup needs an authorized game-data API and a secure backend; this static page does not retrieve private player data or scan IP/location. Official leaderboard should be checked in the game unless Garena provides an authorized API.
+
+This is an independent community website, not affiliated with Garena/Free Fire.
