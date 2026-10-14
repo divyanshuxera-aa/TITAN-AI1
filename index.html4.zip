@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#001012">
+<title>TITAN.AI — Cyber Interface</title>
+<style>
+:root{--bg:#010b0e;--panel:#031318;--line:#00505a;--cyan:#00e5f2;--green:#00ffb3;--muted:#527782;--white:#e8fbff}
+*{box-sizing:border-box}
+html{min-height:100%;background:var(--bg)}
+body{margin:0;min-height:100vh;color:var(--white);font-family:"Courier New",monospace;background-color:var(--bg);background-image:linear-gradient(rgba(0,229,242,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,242,.045) 1px,transparent 1px),radial-gradient(ellipse at 50% 0%,#003036 0%,#001316 42%,#01090c 85%);background-size:22px 22px,22px 22px,100% 100%;letter-spacing:.6px}
+main{width:min(520px,calc(100% - 28px));margin:18px auto 40px}
+.topbar{min-height:54px;border:1px solid var(--line);border-radius:9px;background:rgba(2,18,23,.94);display:flex;align-items:center;justify-content:space-between;padding:12px 17px;box-shadow:0 0 22px #00ddeb08}
+.brand{font-size:18px;font-weight:bold;letter-spacing:2px;color:#fff}.brand span{color:var(--cyan);text-shadow:0 0 12px #00e5f2}
+.status{font-size:9px;color:var(--green);border:1px solid #007b60;border-radius:5px;padding:6px 10px;letter-spacing:1.5px;white-space:nowrap}.dot{display:inline-block;width:7px;height:7px;background:var(--green);border-radius:50%;margin-right:7px;box-shadow:0 0 9px var(--green)}
+.hero{text-align:center;padding:24px 8px 22px}.eyebrow{font-size:9px;letter-spacing:2.2px;color:var(--cyan);font-weight:bold}.hero h1{font-size:clamp(32px,7vw,39px);letter-spacing:5px;margin:10px 0 12px;color:#f4ffff;text-shadow:0 0 20px #00e5f218}.hero p{font-size:10px;line-height:1.8;letter-spacing:1.4px;color:#527782;margin:0 auto;max-width:430px}
+.panel{border:1px solid var(--line);border-radius:10px;background:rgba(2,17,22,.96);padding:19px;box-shadow:0 10px 35px #0006}
+.panel-head{display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px dashed #06424b;padding-bottom:12px;margin-bottom:16px;font-size:12px;font-weight:bold;letter-spacing:1px}.protocol{font-size:9px;color:var(--cyan);white-space:nowrap}
+label{display:block;font-size:10px;color:#72a9b8;letter-spacing:1.2px;font-weight:bold;margin:13px 0 7px}
+input[type=text],input[type=date],input[type=file],input[type=password]{width:100%;min-height:42px;border:1px solid #07505b;border-radius:6px;background:#010d11;color:var(--green);padding:11px 13px;font:12px "Courier New",monospace;outline:none}
+input:focus{border-color:var(--cyan);box-shadow:0 0 0 2px #00e5f216}input[type=file]{padding:6px;color:var(--green)}input[type=file]::file-selector-button{background:#00242b;color:var(--cyan);border:1px solid var(--cyan);padding:9px 12px;border-radius:4px;margin-right:12px;font:10px "Courier New",monospace}
+button{cursor:pointer;font-family:inherit;letter-spacing:1.4px;font-weight:bold;transition:.18s ease}
+.primary{width:100%;min-height:43px;margin-top:18px;background:#003128;border:1px solid var(--green);border-radius:6px;color:var(--green);font-size:11px;box-shadow:0 0 15px #00ffb30b}.primary:hover{background:#004638;box-shadow:0 0 18px #00ffb31c}.primary:disabled{opacity:.6;cursor:wait}
+.notice{font-size:10px;line-height:1.6;color:#72939b;border-left:2px solid #087b84;padding:8px 10px;margin-top:13px}
+.hidden{display:none!important}.results{margin-top:16px;border:1px solid #07505b;border-radius:8px;padding:14px;background:#010d11}.results h3{font-size:11px;color:var(--cyan);margin:0 0 13px;letter-spacing:1.5px}.progress-track{height:5px;background:#06252b;border-radius:5px;overflow:hidden;margin:10px 0 14px}.progress{height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--green));transition:width .35s}.log{font-size:10px;line-height:1.9;color:#6ea7b3;overflow-wrap:anywhere}.log .ok{color:var(--green)}.community{margin-top:20px}.community p{font-size:10px;color:#72939b;line-height:1.7}.footer{text-align:center;margin:38px 0 0;color:#34545e;font-size:9px;letter-spacing:1.3px;line-height:1.8}.small-link{background:none;border:0;color:var(--cyan);text-decoration:underline;font-size:10px;padding:0}
+@media(max-width:420px){main{margin-top:12px}.hero{padding:22px 4px 20px}.panel{padding:15px}.panel-head{font-size:11px}.hero p{font-size:9px}}
+</style>
+</head>
+<body>
+<main>
+  <header class="topbar">
+    <div class="brand">TITAN <span>.AI</span></div>
+    <div class="status"><span class="dot"></span>SYSTEM ONLINE</div>
+  </header>
+
+  <section class="hero">
+    <div class="eyebrow">ADVANCED CYBER ANALYSIS INTERFACE</div>
+    <h1>TITAN AI</h1>
+    <p>Direct terminal interface and local verification sequence stream.</p>
+  </section>
+
+  <section class="panel" aria-labelledby="formTitle">
+    <div class="panel-head"><span id="formTitle">GAME CODE ANALYSIS</span><span class="protocol">ENTRY PROTOCOL</span></div>
+    <form id="analysisForm">
+      <label for="uid">TARGET FREE FIRE UID</label>
+      <input id="uid" type="text" inputmode="numeric" autocomplete="off" minlength="8" maxlength="12" pattern="[0-9]{8,12}" placeholder="Input 8 to 12 digit UID" required>
+      <label for="date">REGISTRY RESTRICTION DATE</label>
+      <input id="date" type="date" required>
+      <label for="file">MOCKUP PROTOCOL VERIFICATION (UPLOAD)</label>
+      <input id="file" type="file" accept=".txt,.png,.jpg,.jpeg,.pdf">
+      <button class="primary" id="runBtn" type="submit">INITIALIZE EXECUTION</button>
+    </form>
+    <div class="notice">DEMO MODE: This interface simulates a terminal sequence in your browser. It does not connect to game servers, check bans, identify IP addresses, or unban accounts.</div>
+    <div class="results hidden" id="results" aria-live="polite">
+      <h3>LOCAL SIMULATION STREAM</h3>
+      <div id="progressText" class="log">Preparing demo...</div>
+      <div class="progress-track"><div class="progress" id="progress"></div></div>
+      <div id="log" class="log"></div>
+    </div>
+  </section>
+
+  <section class="panel community">
+    <div class="panel-head"><span>COMMUNITY GATEWAY</span><span class="protocol">OPTIONAL DEMO</span></div>
+    <p>Generate a local demo token to preview the next screen. No account credentials are requested or transmitted.</p>
+    <label for="alias">OPERATOR ALIAS</label>
+    <input id="alias" type="text" maxlength="24" placeholder="Enter a display name">
+    <button class="primary" id="authBtn" type="button">SCAN &amp; AUTHENTICATE</button>
+    <div id="authResult" class="results hidden" aria-live="polite"></div>
+    <button class="primary hidden" id="monitorBtn" type="button">PROCEED TO MONITOR</button>
+  </section>
+
+  <footer class="footer">© 2026 TITAN.AI CYBER SYSTEMS<br>LOCAL DEMO • NO LIVE SERVER CONNECTION</footer>
+</main>
+<script>
+const $ = id => document.getElementById(id);
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+$('analysisForm').addEventListener('submit', async event => {
+  event.preventDefault();
+  const uid = $('uid').value.trim();
+  if (!/^\d{8,12}$/.test(uid)) {
+    $('uid').setCustomValidity('Please enter an 8 to 12 digit numeric UID.');
+    $('uid').reportValidity(); $('uid').setCustomValidity(''); return;
+  }
+  $('results').classList.remove('hidden');
+  $('runBtn').disabled = true;
+  $('progress').style.width = '0%';
+  $('log').textContent = '';
+  const lines = [
+    '[OK] Local input format validated.',
+    '[OK] Date field received.',
+    '[INFO] ' + ($('file').files[0] ? 'Selected file: ' + $('file').files[0].name : 'No optional file selected.'),
+    '[DEMO] No external server or account was contacted.',
+    '[COMPLETE] Browser-only demonstration finished.'
+  ];
+  for (let i = 0; i < lines.length; i++) {
+    await sleep(450);
+    $('progress').style.width = ((i + 1) * 20) + '%';
+    $('progressText').textContent = 'Simulated sequence: ' + ((i + 1) * 20) + '%';
+    const row = document.createElement('div');
+    row.className = 'ok'; row.textContent = lines[i]; $('log').appendChild(row);
+  }
+  $('runBtn').disabled = false;
+  $('runBtn').textContent = 'EXECUTION COMPLETE — RUN AGAIN';
+});
+
+$('authBtn').addEventListener('click', () => {
+  const alias = $('alias').value.trim();
+  if (!alias) { $('alias').focus(); $('alias').placeholder = 'Please enter an alias first'; return; }
+  const token = 'TITAN-DEMO-' + Math.random().toString(36).slice(2, 10).toUpperCase();
+  const result = $('authResult');
+  result.classList.remove('hidden');
+  result.replaceChildren();
+  const heading = document.createElement('h3'); heading.textContent = 'DEMO TOKEN GENERATED'; result.appendChild(heading);
+  const line = document.createElement('div'); line.className = 'log'; line.textContent = 'Operator: ' + alias; result.appendChild(line);
+  const tokenLine = document.createElement('div'); tokenLine.className = 'log ok'; tokenLine.textContent = token; result.appendChild(tokenLine);
+  const note = document.createElement('div'); note.className = 'notice'; note.textContent = 'This token is for visual testing only and is not a real login credential.'; result.appendChild(note);
+  $('monitorBtn').classList.remove('hidden');
+});
+$('monitorBtn').addEventListener('click', () => {
+  const results = $('results');
+  results.classList.remove('hidden');
+  $('progressText').textContent = 'Monitor preview opened.';
+  $('progress').style.width = '100%';
+  $('log').textContent = 'DEMO MONITOR ACTIVE — no live account or network data is accessed.';
+  window.scrollTo({top: results.getBoundingClientRect().top + window.scrollY - 20, behavior:'smooth'});
+});
+</script>
+</body>
+</html>
