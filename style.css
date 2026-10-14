@@ -12,3 +12,11 @@
 .uid-input-row input { flex:1; min-width:0; border:1px solid rgba(255,255,255,.16); border-radius:10px; padding:14px 16px; color:#fff; background:#111117; }
 .uid-input-row .primary-btn { white-space:nowrap; }
 @media (max-width:560px) { .uid-input-row { flex-direction:column; } }
+
+/* Local game-code analysis panel */
+.analysis-extra{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+.analysis-extra label{display:flex;flex-direction:column;gap:8px;color:var(--muted,#a7a7b8);font-size:.82rem}
+.analysis-extra input{width:100%;min-width:0;padding:12px;border:1px solid rgba(255,255,255,.13);border-radius:10px;background:rgba(5,7,14,.8);color:#f4f4fa}
+.analysis-progress{height:5px;margin-top:18px;border-radius:9px;background:rgba(255,255,255,.1);overflow:hidden}
+#analysis-progress-fill{width:0;height:100%;background:linear-gradient(90deg,#00e5ff,#9d5cff);transition:width .35s ease}
+@media(max-width:640px){.analysis-extra{grid-template-columns:1fr}.uid-input-row{align-items:stretch}}

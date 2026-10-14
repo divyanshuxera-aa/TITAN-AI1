@@ -15,7 +15,7 @@ if (configReady) {
     onAuthStateChanged(auth, user => {
       const button = document.getElementById('open-login');
       if (button) button.textContent = user ? 'Sign out' : 'Sign in';
-      if (user && statusBox) statusBox.textContent = `Signed in as ${user.email || 'TITAN-FF.AI user'}.`;
+      if (user && statusBox) statusBox.textContent = `Signed in as ${user.email || 'TITAN.AI user'}.`;
     });
   } catch (error) { console.error('Firebase initialization failed:', error); }
 }
@@ -27,7 +27,7 @@ function showAuth(mode='login') {
 function setMode(mode) {
   authMode = mode;
   document.querySelectorAll('.auth-tabs button').forEach(b => b.classList.toggle('active', b.dataset.mode === mode));
-  document.getElementById('auth-title').innerHTML = mode === 'signup' ? 'Create your <span>TITAN-FF.AI</span> account' : 'Sign in to <span>TITAN-FF.AI</span>';
+  document.getElementById('auth-title').innerHTML = mode === 'signup' ? 'Create your <span>TITAN.AI</span> account' : 'Sign in to <span>TITAN.AI</span>';
   document.getElementById('name-label').classList.toggle('hidden', mode !== 'signup');
   document.getElementById('confirm-label').classList.toggle('hidden', mode !== 'signup');
   document.getElementById('terms-label').classList.toggle('hidden', mode !== 'signup');
@@ -88,10 +88,19 @@ function updateClock() {
   document.getElementById('india-clock').textContent = `${time} · ${date} IST`;
 }
 updateClock(); setInterval(updateClock, 1000);
-document.getElementById('uid-form')?.addEventListener('submit', e => {
+document.getElementById('uid-form')?.addEventListener('submit', async e => {
   e.preventDefault();
   const uid = document.getElementById('player-uid').value.trim();
   const status = document.getElementById('uid-status');
-  if (!/^[0-9]{5,20}$/.test(uid)) { status.textContent = 'Please enter a numeric UID between 5 and 20 digits.'; return; }
-  status.textContent = 'UID format looks valid, but live public profile data needs an authorized game-data API and secure backend. No fake profile data will be shown.';
+  const fill = document.getElementById('analysis-progress-fill');
+  const date = document.getElementById('registry-date').value;
+  const file = document.getElementById('reference-file').files?.[0];
+  fill.style.width = '0%';
+  if (!/^[0-9]{5,20}$/.test(uid)) { status.textContent = 'ERROR · Enter a numeric UID between 5 and 20 digits.'; return; }
+  status.textContent = 'CHECKING INPUT FORMAT…';
+  for (const pct of [20, 45, 70, 100]) {
+    await new Promise(resolve => setTimeout(resolve, 180));
+    fill.style.width = `${pct}%`;
+  }
+  status.textContent = `LOCAL DEMO COMPLETE · UID ${uid} passed format validation.${date ? ` Registry date: ${date}.` : ''}${file ? ` Reference file selected: ${file.name}.` : ''} No live game-server scan, IP/location tracking, ban status check, or account restoration was performed. A real profile lookup requires an authorized API and backend.`;
 });

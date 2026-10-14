@@ -4,16 +4,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#09090d">
-  <meta name="description" content="TITAN-FF.AI — Free Fire community and teams.">
-  <title>TITAN-FF.AI — Community Gaming Portal</title>
+  <meta name="description" content="TITAN.AI — Free Fire community and teams.">
+  <title>TITAN.AI — Community Gaming Portal</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
   <header class="topbar">
-    <a class="brand" href="#home" aria-label="TITAN-FF.AI home">
-      <span class="brand-mark">T</span><span><strong>TITAN<span>-FF.AI</span></strong><small>CYBER ARENA INTERFACE</small></span>
+    <a class="brand" href="#home" aria-label="TITAN.AI home">
+      <span class="brand-mark">T</span><span><strong>TITAN<span>.AI</span></strong><small>CYBER ARENA INTERFACE</small></span>
     </a>
     <div class="topbar-right">
       <div class="clock"><span class="live-dot"></span><span id="india-clock">Loading IST…</span></div>
@@ -36,7 +36,7 @@
           <div><strong>FAIR PLAY</strong><span>Rules first</span></div>
         </div>
       </div>
-      <div class="hero-art" aria-label="TITAN-FF.AI original graphic">
+      <div class="hero-art" aria-label="TITAN.AI original graphic">
         <div class="ring ring-outer"></div><div class="ring ring-inner"></div>
         <div class="crosshair crosshair-a"></div><div class="crosshair crosshair-b"></div>
         <div class="hero-emblem"><span>T</span><i>FF</i></div>
@@ -55,14 +55,19 @@
     </section>
 
     <section class="section" id="uid-lookup">
-      <div class="section-head"><div><div class="eyebrow">PLAYER SEARCH</div><h2>Free Fire <span>UID lookup</span></h2></div><span class="demo-badge">API REQUIRED</span></div>
+      <div class="section-head"><div><div class="eyebrow">PLAYER SEARCH</div><h2>Game code <span>analysis</span></h2></div><span class="demo-badge">LOCAL DEMO</span></div>
       <div class="feature-card uid-lookup-card">
-        <p>Enter a player UID to look up a public profile through an authorized game-data API.</p>
+        <p>Enter your Free Fire UID, optionally choose a registry date and attach a reference image. This runs a local interface demo; it does not contact Garena servers or change account status.</p>
         <form id="uid-form" class="uid-form">
-          <label for="player-uid">Player UID</label>
-          <div class="uid-input-row"><input id="player-uid" name="uid" inputmode="numeric" pattern="[0-9]{5,20}" minlength="5" maxlength="20" placeholder="Enter Free Fire UID" required><button class="primary-btn" type="submit">SEARCH <span>→</span></button></div>
+          <label for="player-uid">Target Free Fire UID</label>
+          <div class="uid-input-row"><input id="player-uid" name="uid" inputmode="numeric" pattern="[0-9]{5,20}" minlength="5" maxlength="20" placeholder="Enter 5–20 digit UID" required><button class="primary-btn" type="submit">INITIALIZE <span>→</span></button></div>
+          <div class="analysis-extra">
+            <label for="registry-date">Registry date <input id="registry-date" type="date"></label>
+            <label for="reference-file">Reference image (optional)<input id="reference-file" type="file" accept="image/*"></label>
+          </div>
         </form>
-        <p id="uid-status" class="auth-status" role="status" aria-live="polite">Profile data will appear here after an authorized API/backend is configured. This page cannot retrieve private account details or access Garena login systems.</p>
+        <div class="analysis-progress" aria-label="Demo progress"><div id="analysis-progress-fill"></div></div>
+        <p id="uid-status" class="auth-status" role="status" aria-live="polite">SYSTEM READY · Enter a UID to run the local demo. No private account data is accessed.</p>
       </div>
     </section>
 
@@ -73,7 +78,7 @@
   </main>
 
   <footer>
-    <a class="brand footer-brand" href="#home"><span class="brand-mark">T</span><span><strong>TITAN<span>-FF.AI</span></strong><small>CYBER ARENA INTERFACE</small></span></a>
+    <a class="brand footer-brand" href="#home"><span class="brand-mark">T</span><span><strong>TITAN<span>.AI</span></strong><small>CYBER ARENA INTERFACE</small></span></a>
     <nav><a href="#community">Community</a><a href="#uid-lookup">UID lookup</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="rules.html">Rules</a><a href="contact.html">Contact</a></nav>
     <p>Independent community project. Not affiliated with or endorsed by Garena or Free Fire.</p>
   </footer>
@@ -82,8 +87,8 @@
     <button class="dialog-close" id="close-dialog" aria-label="Close dialog">×</button>
     <div class="auth-logo"><span class="brand-mark">T</span></div>
     <div class="eyebrow centered">WELCOME TO THE ARENA</div>
-    <h2 id="auth-title">Sign in to <span>TITAN-FF.AI</span></h2>
-    <p class="auth-intro">Sign in securely with TITAN-FF.AI. Firebase setup is required before account access will work.</p>
+    <h2 id="auth-title">Sign in to <span>TITAN.AI</span></h2>
+    <p class="auth-intro">Sign in securely with TITAN.AI. Firebase setup is required before account access will work.</p>
     <div class="auth-tabs"><button class="active" data-mode="login">Sign in</button><button data-mode="signup">Create account</button></div>
     <form id="auth-form">
       <label id="name-label" class="hidden">Display name<input id="display-name" autocomplete="name" placeholder="Your display name"></label>
@@ -97,7 +102,7 @@
     <button class="google-btn" id="google-login"><span class="google-g">G</span> Continue with Google</button>
     <button class="phone-btn" id="phone-login">＋91 &nbsp; Continue with phone OTP</button>
     <p class="auth-status" id="auth-status" role="status" aria-live="polite">Authentication is not configured in this static starter.</p>
-    <small class="security-note">Never enter your Free Fire/Garena password here. This login is only for your TITAN-FF.AI community account.</small>
+    <small class="security-note">Never enter your Free Fire/Garena password here. This login is only for your TITAN.AI community account.</small>
   </dialog>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
   <script type="module" src="app.js"></script>

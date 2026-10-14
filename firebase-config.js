@@ -1,4 +1,4 @@
-// TITAN-FF.AI Firebase Web configuration
+// TITAN.AI Firebase Web configuration
 // These client config values identify the Firebase project; protect data with Firebase Security Rules.
 export const firebaseConfig = {
   apiKey: "AIzaSyDvNZywfBNeaOJplEP22SoIm_dPKNqrQmY",

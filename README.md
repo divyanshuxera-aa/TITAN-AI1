@@ -1,4 +1,4 @@
-# TITAN-FF.AI — Final website package
+# TITAN.AI — Final website package
 
 Responsive community gaming website with sign-in/sign-up UI, official Garena esports links, leaderboard guidance, UID lookup form, community squad/event sections, and policy pages.
 
@@ -29,4 +29,4 @@ Never share your Firebase password or service-account/private keys. The browser 
 - Community tournament cards are examples, not actual registered events. Real registrations, squad persistence, and a community leaderboard require a database/backend plus security rules.
 - Google login needs the Google provider enabled in Firebase. Phone OTP is not active in this package because it requires a reCAPTCHA verifier and additional setup.
 
-TITAN-FF.AI is an independent community project and is not affiliated with or endorsed by Garena or Free Fire.
+TITAN.AI is an independent community project and is not affiliated with or endorsed by Garena or Free Fire.

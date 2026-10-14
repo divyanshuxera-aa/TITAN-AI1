@@ -1,4 +1,4 @@
-TITAN-FF.AI — Firebase setup ke aakhri steps
+TITAN.AI — Firebase setup ke aakhri steps
 
 1) Firebase Console: https://console.firebase.google.com/project/titan-ff-1/authentication/providers
 2) Authentication > Sign-in method (ya Sign-in providers) me Email/Password ko Enable karke Save karein.
